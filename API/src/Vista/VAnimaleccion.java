@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Modelo.Animaleccion;
+import Modelo.GestorAnimaleccion;
 
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ import javax.swing.JButton;
 public class VAnimaleccion extends JFrame implements Observer {
 
 	private JPanel contentPane;
+	JLabel vidas = new JLabel("vidas");
 	private JLabel img = new JLabel("AQUI IRA LA IMAGEN");
 	private ButtonGroup opciones = new ButtonGroup();
 	private JRadioButton op1 = new JRadioButton("init");
@@ -47,10 +49,13 @@ public class VAnimaleccion extends JFrame implements Observer {
 			}
 		});
 	}
+	public static VAnimaleccion getVista(){
+		return miVAnimaleccion;
+	}
 
 	protected void actualizar() {
 		
-		Random rm = new Random();
+		/*Random rm = new Random();
 		ArrayList<String> opc = (Animaleccion.getAnimaleccion().getOpciones());
 		int random = rm.nextInt(opc.size());
 		op1.setText(opc.get(random));
@@ -60,6 +65,8 @@ public class VAnimaleccion extends JFrame implements Observer {
 		opc.remove(random);
 		random = rm.nextInt(opc.size());
 		op3.setText(opc.get(random));
+
+		img.setIcon(Animaleccion.getAnimaleccion().getImagen());*/
 	}
 
 	/**
@@ -90,6 +97,7 @@ public class VAnimaleccion extends JFrame implements Observer {
 		opciones.add(op1);
 		opciones.add(op2);
 		opciones.add(op3);
+		img.setBounds(261, 46, 409, 214);
 		contentPane.add(img);
 		
 		JButton btnComprobar = new JButton("Comprobar");
@@ -110,13 +118,14 @@ public class VAnimaleccion extends JFrame implements Observer {
 					resul = op3.getText();
 				}
 				if(!resul.equals("None")){
-				Animaleccion.getAnimaleccion().comprobar(resul);
+					if(Animaleccion.getAnimaleccion().getFase()<4){
+				Animaleccion.getAnimaleccion().comprobar(resul);}
 				}
 				
 			}
 		});
 		
-		JLabel vidas = new JLabel("vidas");
+		
 		vidas.setBounds(647, 13, 56, 16);
 		contentPane.add(vidas);
 		
@@ -126,17 +135,51 @@ public class VAnimaleccion extends JFrame implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 			Random rm = new Random();
-			ArrayList<String> opc = (Animaleccion.getAnimaleccion().getOpciones());
-			int random = rm.nextInt(opc.size());
-			op1.setText(opc.get(random));
-			opc.remove(random);
-			random = rm.nextInt(opc.size());
-			op2.setText(opc.get(random));
-			opc.remove(random);
-			random = rm.nextInt(opc.size());
-			op3.setText(opc.get(random));
-			img.setIcon(Animaleccion.getAnimaleccion().getImagen());
-		
+			System.out.println("update");
+			vidas.setText("vidas: "+Animaleccion.getAnimaleccion().getVidas());
+			if(Animaleccion.getAnimaleccion().getVidas()<0){
+				VAnGameOver.main(null);
+			}else if(Animaleccion.getAnimaleccion().getFase()>3){
+				VAnFin.main(null);
+			}else{
+				ArrayList<String> opc = new ArrayList<String>();
+				opc = (Animaleccion.getAnimaleccion().getOpciones());
+				int random = rm.nextInt(opc.size());
+				System.out.println(opc.size());
+				op1.setText(opc.get(random));
+				op1.setSelected(false);
+				//opc.remove(random);
+				random = rm.nextInt(opc.size());
+				op2.setText(opc.get(random));
+				op2.setSelected(false);
+				//opc.remove(random);
+				random = rm.nextInt(opc.size());
+				op3.setText(opc.get(random));
+				op3.setSelected(false);
+				System.out.println(op1.getText());
+				System.out.println(op2.getText());
+				System.out.println(op3.getText());
+				random = rm.nextInt(3);
+				System.out.println(random);
+				if(random ==0){
+					System.out.println("entro en 0");
+					op1.setText(Animaleccion.getAnimaleccion().getSolucion2());
+					System.out.println(op1.getText());
+				}
+				if(random ==1){
+					System.out.println("entro en 1");
+					op2.setText(Animaleccion.getAnimaleccion().getSolucion2());
+					System.out.println(op2.getText());
+				}
+				if(random ==2){
+					System.out.println("entro en 2");
+					op3.setText(Animaleccion.getAnimaleccion().getSolucion2());
+					System.out.println(op3.getText());
+				}
+				img.setIcon(Animaleccion.getAnimaleccion().getImagen());
+				System.out.println(Animaleccion.getAnimaleccion().getSolucion2());
+			}
+		}
 		
 	}
 
@@ -144,4 +187,4 @@ public class VAnimaleccion extends JFrame implements Observer {
 	
 	
 	
-}
+

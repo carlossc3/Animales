@@ -9,23 +9,25 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Modelo.Ahorcado;
 import Modelo.GestorAhorcado;
 import Modelo.GestorAnimaleccion;
 
+import javax.swing.JLabel;
 import javax.swing.JButton;
 
-public class VPrincipal extends JFrame {
+public class VAnFin extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(VAhorcado vAhorcado) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VPrincipal frame = new VPrincipal();
+					VAnFin frame = new VAnFin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,43 +39,46 @@ public class VPrincipal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VPrincipal() {
+	public VAnFin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JButton btnAhorcado = new JButton("Ahorcado de animalitos");
-		contentPane.add(btnAhorcado, BorderLayout.CENTER);
+		JLabel lblHasPerdidoooJaaajajaja = new JLabel("HAS GANADO");
+		lblHasPerdidoooJaaajajaja.setBounds(60, 35, 317, 16);
+		contentPane.add(lblHasPerdidoooJaaajajaja);
 		
 		
-		JButton btnAnimaleccion = new JButton("Animaleccion");
-		contentPane.add(btnAnimaleccion, BorderLayout.SOUTH);
-		btnAhorcado.addActionListener(new ActionListener() {
+		JButton btnJugarOtraVez = new JButton("Jugar Otra Vez");
+		btnJugarOtraVez.setBounds(234, 184, 143, 25);
+		contentPane.add(btnJugarOtraVez);
+		btnJugarOtraVez.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				GestorAhorcado.getGestorAhorcado().initAhorcado();
-
-				VAhorcado.main(null);
-				
-			}
-		});
-		
-		btnAnimaleccion.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				VAnimaleccion.main(null);
 				GestorAnimaleccion.getGestorAnimaleccion().initAnnimaleccion();
-				
+				VAnimaleccion.main(null);
+				dispose();
 				
 			}
 		});
+		
+		JButton btnMenuPrincipal = new JButton("Menu Principal");
+		btnMenuPrincipal.setBounds(60, 184, 123, 25);
+		btnMenuPrincipal.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VPrincipal.main(null);
+				VAnimaleccion.getVista().setVisible(false);
+				dispose();
+				
+			}
+		});
+		contentPane.add(btnMenuPrincipal);
 		
 	}
-
 }

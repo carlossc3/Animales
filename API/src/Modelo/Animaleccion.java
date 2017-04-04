@@ -6,6 +6,8 @@ import java.util.Observable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import Vista.VPrincipal;
+
 public class Animaleccion extends Observable{
 	
 	private String[] solucion;
@@ -31,6 +33,10 @@ public class Animaleccion extends Observable{
 		return this.solucion;
 	}
 	
+	public String getSolucion2(){
+		return this.solucion[fase];
+	}
+	
 	public ArrayList<String> getOpciones(){
 		return this.opciones;
 	}
@@ -46,8 +52,12 @@ public class Animaleccion extends Observable{
 	public void setTablero(String[] pSolucion, ArrayList<String> pOpciones, int pFase){
 		solucion = pSolucion;
 		opciones = pOpciones;
+		vidas = 1;
 		fase = pFase;
-		imagen = new ImageIcon(getClass().getResource(solucion[fase]+".png"));
+		System.out.println(solucion[fase]);
+		imagen = new ImageIcon(getClass().getResource("img//"+solucion[fase].toLowerCase()+".jpg"));
+		System.out.println(imagen);
+		
 		setChanged();
 		notifyObservers(null);
 	}
@@ -55,17 +65,15 @@ public class Animaleccion extends Observable{
 	public void comprobar(String pEleccion){
 		if(!pEleccion.equals(solucion[fase])){
 			vidas--;
-		}else{
-			fase++;
-			changeImg();
+			
 		}
 		
 		if(vidas<0){
 			System.out.println("Acaba el juego perdido");
 		}
-		
-		if(fase>4){
-			System.out.println("Acaba el juego ganado");
+		fase++;
+		if(fase<4){
+			changeImg();
 		}
 		
 		setChanged();
@@ -75,7 +83,7 @@ public class Animaleccion extends Observable{
 	}
 
 	private void changeImg() {
-		this.imagen =  new ImageIcon(getClass().getResource(solucion[fase]+".png"));
+		this.imagen =  new ImageIcon(getClass().getResource("img//"+solucion[fase].toLowerCase()+".jpg"));
 		
 	}
 

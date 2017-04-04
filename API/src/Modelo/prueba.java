@@ -1,5 +1,6 @@
 package Modelo;
 
+import Vista.Reg_id;
 import Vista.VPrincipal;
 
 public class prueba {

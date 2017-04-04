@@ -32,21 +32,17 @@ public class GestorAnimaleccion {
 		animales.add("HIPOPOTAMO");
 		animales.add("MORSA");
 		animales.add("PINGUINO");
-		animales.add("MARIQUITA");
-		animales.add("ARAÑA");
-		animales.add("HIPOPOTAMO");
-		animales.add("MORSA");
-		animales.add("PINGUINO");
+		animales.add("ORNITORRINCO");
 	}
 	
 	
 	public void initAnnimaleccion(){
 		Random rm = new Random();
 		ArrayList<String> opciones = animales;
-		String[] soluciones = new String[5];
+		String[] soluciones = new String[4];
 		System.out.println(animales.size());
 		int pos = 0;
-		for(int i =0; i<5;i++){
+		for(int i =0; i<4;i++){
 			pos = rm.nextInt(opciones.size());
 			soluciones[i] = opciones.get(pos);
 			opciones.remove(pos);
