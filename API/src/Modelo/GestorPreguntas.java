@@ -34,12 +34,14 @@ public class GestorPreguntas {
 					pregunta[4] = rs.getString("respuesta4");
 					preguntas.add(pregunta);
 				}	
-					
+				Conexion.cerrar(rs);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		
+		
 		
 		
 	}

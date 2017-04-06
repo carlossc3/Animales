@@ -74,6 +74,7 @@ public class VPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				VAnimaleccion.main(null);
 				GestorAnimaleccion.getGestorAnimaleccion().initAnnimaleccion();
 				
@@ -85,6 +86,7 @@ public class VPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				VPreguntas.main(null);
 				GestorPreguntas.getGestorPreguntas().initPreguntas();
 				

@@ -93,7 +93,7 @@ public class Conexion {
             System.out.println("Error con: " + cadena);
             System.out.println("Clave repetida, saldr� ventana de avisto");
             //e.printStackTrace();
-            lanzarMensajeVariasLineas();
+            
             
         }
         return rs;//si devuelve -1 mal si devuelve otro valor bien
@@ -126,11 +126,5 @@ public class Conexion {
         }
     }
     
-    public static void lanzarMensajeVariasLineas(){
-		  //Propiedad del sistema para salto de l�nea:
-		  String nl = System.getProperty("line.separator");
-		  //Lanzamos el mensaje:
-/*		  JOptionPane.showMessageDialog(null, "Error"
-		    + nl + "C�digo ya inscrito");*/
-		 }
+    
 }
