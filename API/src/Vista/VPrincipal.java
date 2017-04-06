@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import Modelo.GestorAhorcado;
 import Modelo.GestorAnimaleccion;
+import Modelo.GestorPreguntas;
 
 import javax.swing.JButton;
 
@@ -42,15 +43,21 @@ public class VPrincipal extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JButton btnAhorcado = new JButton("Ahorcado de animalitos");
-		contentPane.add(btnAhorcado, BorderLayout.CENTER);
+		btnAhorcado.setBounds(5, 5, 422, 31);
+		contentPane.add(btnAhorcado);
 		
 		
 		JButton btnAnimaleccion = new JButton("Animaleccion");
-		contentPane.add(btnAnimaleccion, BorderLayout.SOUTH);
+		btnAnimaleccion.setBounds(5, 111, 422, 25);
+		contentPane.add(btnAnimaleccion);
+		
+		JButton btnPreguntas = new JButton("AnimalQuizz");
+		btnPreguntas.setBounds(0, 215, 427, 25);
+		contentPane.add(btnPreguntas);
 		btnAhorcado.addActionListener(new ActionListener() {
 			
 			@Override
@@ -74,6 +81,15 @@ public class VPrincipal extends JFrame {
 			}
 		});
 		
+		btnPreguntas.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VPreguntas.main(null);
+				GestorPreguntas.getGestorPreguntas().initPreguntas();
+				
+			}
+		});
 	}
 
 }
