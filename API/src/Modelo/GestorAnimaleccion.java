@@ -37,6 +37,7 @@ public class GestorAnimaleccion {
 	
 	
 	public void initAnnimaleccion(){
+		importAnimales(null);
 		Random rm = new Random();
 		ArrayList<String> opciones = animales;
 		String[] soluciones = new String[4];

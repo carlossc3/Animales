@@ -36,6 +36,7 @@ public class GestorAhorcado {
 	
 	
 	public void initAhorcado(){
+		importAnimales(null);
 		Random rm = new Random();
 		rm.nextInt(3);
 		Ahorcado.getAhorcado().setTablero(animales.get(rm.nextInt(animales.size())));
