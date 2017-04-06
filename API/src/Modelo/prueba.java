@@ -9,7 +9,7 @@ import Vista.VPrincipal;
 public class prueba {
 
 	public static void main(String[] args) {
-		VPrincipal.main(null);
+		Reg_id.main(null);
 		
 	
 		
