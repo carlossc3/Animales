@@ -141,7 +141,7 @@ public class VAnimaleccion extends JFrame implements Observer {
 			Random rm = new Random();
 			System.out.println("update");
 			vidas.setText("vidas: "+Animaleccion.getAnimaleccion().getVidas());
-			fase.setText("fase: "+Animaleccion.getAnimaleccion().getFase());
+			fase.setText("fase: "+Animaleccion.getAnimaleccion().getFase()+1);
 			if(Animaleccion.getAnimaleccion().getVidas()<0){
 				VAnGameOver.main(null);
 			}else if(Animaleccion.getAnimaleccion().getFase()>3){

@@ -137,7 +137,7 @@ public class VPreguntas extends JFrame implements Observer {
 		if(Preguntas.getPreguntas().getFase()<5 && Preguntas.getPreguntas().getVidas()>=0){
 		int fase = Preguntas.getPreguntas().getFase();
 		vidas.setText("vidas: "+Preguntas.getPreguntas().getVidas());
-		lblfase.setText("fase: "+fase);
+		lblfase.setText("fase: "+fase+1);
 		pregunta.setText(Preguntas.getPreguntas().getPregunta());
 		System.out.println(Preguntas.getPreguntas().getPregunta());
 		Random rm = new Random();
