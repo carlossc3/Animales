@@ -47,9 +47,9 @@ public class VAnGameOver extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblHasPerdidoooJaaajajaja = new JLabel("HAS PERDIDOOO, te has quedado sin vidas");
-		lblHasPerdidoooJaaajajaja.setBounds(60, 35, 317, 16);
-		contentPane.add(lblHasPerdidoooJaaajajaja);
+		JLabel lblHasPerdido = new JLabel("HAS PERDIDOOO, te has quedado sin vidas");
+		lblHasPerdido.setBounds(60, 35, 317, 16);
+		contentPane.add(lblHasPerdido);
 		
 	
 		

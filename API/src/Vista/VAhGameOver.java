@@ -46,9 +46,9 @@ public class VAhGameOver extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblHasPerdidoooJaaajajaja = new JLabel("HAS PERDIDOOO JAAAJAJAJA QUE SUBNORMAL");
-		lblHasPerdidoooJaaajajaja.setBounds(60, 35, 317, 16);
-		contentPane.add(lblHasPerdidoooJaaajajaja);
+		JLabel lblHasPerdido = new JLabel("HAS PERDIDOOO");
+		lblHasPerdido.setBounds(60, 35, 317, 16);
+		contentPane.add(lblHasPerdido);
 		
 		JLabel lblLaSolucinEra = new JLabel("La soluci\u00F3n era: "+ Ahorcado.getAhorcado().getSolucion());
 		lblLaSolucinEra.setBounds(60, 87, 180, 16);

@@ -47,9 +47,9 @@ public class VPGameOver extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblHasPerdidoooJaaajajaja = new JLabel("HAS PERDIDOOO JAAAJAJAJA QUE SUBNORMAL");
-		lblHasPerdidoooJaaajajaja.setBounds(60, 35, 317, 16);
-		contentPane.add(lblHasPerdidoooJaaajajaja);
+		JLabel lblHasPerdido = new JLabel("HAS PERDIDOOO");
+		lblHasPerdido.setBounds(60, 35, 317, 16);
+		contentPane.add(lblHasPerdido);
 
 		
 		JButton btnJugarOtraVez = new JButton("Jugar Otra Vez");
