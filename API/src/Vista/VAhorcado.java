@@ -81,17 +81,11 @@ public class VAhorcado extends JFrame implements Observer{
 		lblIntrouceUnaLetra.setBounds(290, 153, 117, 16);
 		contentPane.add(lblIntrouceUnaLetra);
 		
-		JButton btnRendirse = new JButton("Rendirse");
-		btnRendirse.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnRendirse.setBounds(218, 199, 97, 25);
-		contentPane.add(btnRendirse);
+		
 		
 		JButton btnComprobar = new JButton("Comprobar");
 		
-		btnComprobar.setBounds(579, 199, 97, 25);
+		btnComprobar.setBounds(353, 200, 182, 25);
 		btnComprobar.addActionListener(new ActionListener() {
 			
 			@Override

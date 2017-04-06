@@ -32,6 +32,7 @@ public class VAnimaleccion extends JFrame implements Observer {
 	private JRadioButton op2 = new JRadioButton("init");
 	private JRadioButton op3 = new JRadioButton("init");
 	private static VAnimaleccion miVAnimaleccion = new VAnimaleccion();
+	private final JLabel fase = new JLabel("fase");
 
 	/**
 	 * Launch the application.
@@ -128,6 +129,9 @@ public class VAnimaleccion extends JFrame implements Observer {
 		
 		vidas.setBounds(647, 13, 56, 16);
 		contentPane.add(vidas);
+		fase.setBounds(647, 290, 56, 16);
+		
+		contentPane.add(fase);
 		
 		
 	}
@@ -137,6 +141,7 @@ public class VAnimaleccion extends JFrame implements Observer {
 			Random rm = new Random();
 			System.out.println("update");
 			vidas.setText("vidas: "+Animaleccion.getAnimaleccion().getVidas());
+			fase.setText("fase: "+Animaleccion.getAnimaleccion().getFase());
 			if(Animaleccion.getAnimaleccion().getVidas()<0){
 				VAnGameOver.main(null);
 			}else if(Animaleccion.getAnimaleccion().getFase()>3){
