@@ -39,6 +39,7 @@ public class VPreguntas extends JFrame implements Observer {
 	private JRadioButton op4 = new JRadioButton("init");
 	private static VPreguntas miVPreguntas = new VPreguntas();
 	private JLabel vidas = new JLabel("New label");
+	private final JLabel lblfase = new JLabel("New label");
 
 	/**
 	 * Launch the application.
@@ -95,6 +96,9 @@ public class VPreguntas extends JFrame implements Observer {
 		vidas.setBounds(442, 309, 119, 16);
 		
 		contentPane.add(vidas);
+		lblfase.setBounds(442, 288, 56, 16);
+		
+		contentPane.add(lblfase);
 		btnComprobar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -133,6 +137,7 @@ public class VPreguntas extends JFrame implements Observer {
 		if(Preguntas.getPreguntas().getFase()<5 && Preguntas.getPreguntas().getVidas()>=0){
 		int fase = Preguntas.getPreguntas().getFase();
 		vidas.setText("vidas: "+Preguntas.getPreguntas().getVidas());
+		lblfase.setText("fase: "+fase);
 		pregunta.setText(Preguntas.getPreguntas().getPregunta());
 		System.out.println(Preguntas.getPreguntas().getPregunta());
 		Random rm = new Random();
